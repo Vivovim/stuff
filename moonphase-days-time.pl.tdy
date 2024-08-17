@@ -49,21 +49,32 @@ sub CheckFloat {
 
     #	print "Value: $value\n";
 
-    if ( $value >= "0.90" && $value <= "0.92" ) { $time = ( $time - 77760 ); }
+    if ( $value >= "0.96" && $value <= "0.99" ) { $time = ( $time - 82944 ); }
+
+    if ( $value >= "0.90" && $value <= "0.95" ) { $time = ( $time - 77760 ); }
 
     if ( $value >= "0.86" && $value <= "0.90" ) { $time = ( $time - 74304 ); }
+    if ( $value >= "0.80" && $value <= "0.85" ) { $time = ( $time - 69120 ); }
 
-    if ( $value >= "0.75" && $value <= "0.85" ) { $time = ( $time - 64800 ); }
+    if ( $value >= "0.75" && $value <= "0.80" ) { $time = ( $time - 64800 ); }
 
     if ( $value >= "0.65" && $value <= "0.74" ) { $time = ( $time - 56160 ); }
 
-    if ( $value >= "0.50" && $value <= "0.64" ) { $time = ( $time - 43200 ); }
+    if ( $value >= "0.55" && $value <= "0.64" ) { $time = ( $time - 47520 ); }
 
-    if ( $value >= "0.40" && $value <= "0.49" ) { $time = ( $time - 34560 ); }
+    if ( $value >= "0.50" && $value <= "0.54" ) { $time = ( $time - 43200 ); }
 
-    if ( $value >= "0.30" && $value <= "0.39" ) { $time = ( $time - 25920 ); }
+    if ( $value >= "0.45" && $value <= "0.49" ) { $time = ( $time - 38880 ); }
 
-    if ( $value >= "0.20" && $value <= "0.29" ) { $time = ( $time - 17280 ); }
+    if ( $value >= "0.40" && $value <= "0.44" ) { $time = ( $time - 34560 ); }
+
+    if ( $value >= "0.35" && $value <= "0.39" ) { $time = ( $time - 30240 ); }
+    if ( $value >= "0.30" && $value <= "0.34" ) { $time = ( $time - 25920 ); }
+    if ( $value >= "0.25" && $value <= "0.29" ) { $time = ( $time - 21600 ); }
+
+    if ( $value >= "0.20" && $value <= "0.24" ) { $time = ( $time - 17200 ); }
+
+    if ( $value >= "0.15" && $value <= "0.19" ) { $time = ( $time - 12960 ); }
 
     my ( $x3, $x4 ) = &CheckMoon($time);
 
@@ -111,7 +122,7 @@ sub Search {
 
         system("date -r $time1");
 
-        print "$mage\n";
+        print "$mage\n\n";
 
         $start += $jump;
 
