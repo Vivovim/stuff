@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 ## Sun Apr  4 18:20:49 MST 2021
-## Christopher ctopher@mac.com
+## Christopher neo@ctopher.me 
 
 use strict;
 
@@ -135,9 +135,9 @@ sub Search {
     my $start = shift;
     my $end   = shift;
 
-    print "$start, $end\n\n";
+    #	print "$start, $end\n\n";
 
-    my $jump = 89400;
+    my $jump = 86400;
 
     print "$jump\n";
 
@@ -149,9 +149,14 @@ sub Search {
 
         my ( $mage, $time1 ) = &CheckMoon($xx2);
 
-        system("date -r $time1");
+        # my $vtest = `system("date -r $time1")`;
+        my $vtest = `date -r $time1`;
 
-        print "$mage\n\n";
+        my $xtest = chomp($vtest);
+
+        #		print "$xtest: $mage\n\n";
+
+        print "$vtest, $mage\n\n";
 
         $start += $jump;
 
