@@ -1,8 +1,8 @@
 #!/usr/bin/perl
 ## Wed Sep 19 20:12:41 PDT 2012
-## Christopher neo@ctopher.me 
+## Christopher ctopher@me.com
 ## this file, 2024, 5 - 31
-
+## ChatGPT Cleaned this file up. 4/9/2025. @22:00
 
 
 
@@ -12,32 +12,32 @@ use strict;
 
 my %writeup = (
 
-	'a' => "1",
-	'b' => "2",
-	'c' => "3",
-	'd' => "4",
-	'e' => "5",
-	'f' => "6",
-	'g' => "7",
-	'h' => "8",
-	'i' => "9",
-	'j' => "1",
-	'k' => "2",
-	'l' => "3",
-	'm' => "4",
-	'n' => "5",
-	'o' => "6",
-	'p' => "7",
-	'q' => "8",
-	'r' => "9",
-	's' => "1",
-	't' => "2",
-	'u' => "3",
-	'v' => "4",
-	'w' => "5",
-	'x' => "6",
-	'y' => "7",
-	'z' => "8",
+	'a' => 1,
+	'b' => 2,
+	'c' => 3,
+	'd' => 4,
+	'e' => 5,
+	'f' => 6,
+	'g' => 7,
+	'h' => 8,
+	'i' => 9,
+	'j' => 1,
+	'k' => 2,
+	'l' => 3,
+	'm' => 4,
+	'n' => 5,
+	'o' => 6,
+	'p' => 7,
+	'q' => 8,
+	'r' => 9,
+	's' => 1,
+	't' => 2,
+	'u' => 3,
+	'v' => 4,
+	'w' => 5,
+	'x' => 6,
+	'y' => 7,
+	'z' => 8,
 
 );
 
@@ -47,9 +47,9 @@ my %writeup = (
 ### otherwise, it won't work.
 
 
-my $first	= "alexander";
-my $middle	= "thomas";
-my $last	= "flynn";
+my $first	= "neo";
+my $middle	= "ctopher";
+my $last	= "";
 
 my $full	= $first . $middle . $last;
 
@@ -59,7 +59,7 @@ my @constants = ();
 
 
 
-
+print "$first, $middle, $last\n";
 
 
 
@@ -75,7 +75,7 @@ my @Set = ();
 push @Set, $first, $middle, $last;
 
 
-my $scores	= "0";
+my $scores	= 0;
 
 
 
@@ -95,9 +95,14 @@ foreach my $data (@Set) {
 }
 
 
-	my ($catch1, $catch2) = split(//, $scores);
 
-	my $delta	= $catch1 + $catch2;
+my $delta = 0;
+$delta += $_ for split(//, $scores);
+
+
+
+#	my ($catch1, $catch2) = split(//, $scores);
+#	my $delta	= $catch1 + $catch2;
 
 
 	print "Total Score: $scores\n\n\n";
@@ -133,99 +138,41 @@ my $delta2	= &GenX($constants);
 # print "Constants: @constants\n";
 
 
-print "\n\nLife Path: $delta\/$scores\/$scoreX\n\n";
+print "Life Path: $delta\/$scores\/$scoreX\n\n";
 print "Soul: $delta1\n";
 print "Personality: $delta2\n";
 
 
 
-
 sub GenX {
+    my $name = shift;
+    my @chars = split //, $name;
+    my $total = 0;
 
-my $name = shift;
+    foreach my $char (@chars) {
+        if (exists $writeup{$char}) {
+            $total += $writeup{$char};
+        }
+    }
 
+    # Master number check
+    return $total if $total == 11 || $total == 22 || $total == 33;
 
+    # Reduce the total
+    my $sum = 0;
+    $sum += $_ for split(//, $total);
 
-my @list = split(//, $name);
-my @data = ();
+    return $sum if $sum == 11 || $sum == 22 || $sum == 33;
 
+    my $final = 0;
+    $final += $_ for split(//, $sum);
 
-print "@list\n";
-
-foreach my $val (@list) {
-	my $d1	= $writeup{$val};
-	push @data, $d1;
-#	print "$d1\n";
-
+    return $final;
 }
 
 
-my $total = "0";
-
-foreach my $val2 (@data) {
-
-	$total += $val2;
-
-}
 
 
-print "Total: $total\n";
-
-if ($total == "11" || $total == "22" || $total == "33") {
-
-
-print "$total\n";
-
-return($total);
-
-
-} else {
-
-
-
-
-my @group = ();
-
-
-@group	= split(//, $total);
-
-my $fun	= "0";
-
-foreach my $set (@group) {
-
-	$fun += $set;
-
-
-	}
-
-
-print "Fun: $fun\n";
-
-my $G1 = "0";
-
-if ($fun == "11" || $fun == "22" || $fun == "33") {
-
-        $G1 = $fun;
-
-} else {
-
-
-my ($S1, $S2)   = split(//, $fun);
-
-print "DATA: $S1, $S2\n";
-
-
-$G1 = $S1 + $S2;
-
-
-}
-
- print "$G1\n";
-
-	return($G1);
-}
-
-}
 
 
 
